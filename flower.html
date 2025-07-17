@@ -10,7 +10,7 @@
     <style>
 
 
-      /* Estilo para el botón de reproducción */
+      /* Estilo botón de reproducción */
       #playButton {
         position: absolute;
         top: 10px;
@@ -30,10 +30,10 @@
         background-color: rgb(50, 194, 194);
       }
 
-      /* Para la animación de las letras */
+      /* animación de las letras */
       .container {
         position: relative;
-        padding-top: 50px; /* Espacio para el botón */
+        padding-top: 50px;
       }
 
       @media screen and (max-width: 574px) {
@@ -71,7 +71,7 @@
 
 <style>
   .highlight {
-    font-weight: bold; /* Mantén el estilo de negrita */
+    font-weight: bold; 
   }
 </style>
 
@@ -149,7 +149,7 @@
   function updateLyrics() {
     const currentTime = audio.currentTime;
 
-    // Actualiza la línea de la letra en función del tiempo
+    // línea de la letra en función del tiempo
     while (
         currentLineIndex < lyricsData.length &&
         currentTime >= lyricsData[currentLineIndex].time
@@ -167,11 +167,11 @@
         currentWordIndex++;
       }
 
-      // Interpola el color
+      // Interpolar el color
       const colorFactor = (currentTime - lyricsData[currentLineIndex - 1].time) / (lyricsData[currentLineIndex]?.time - lyricsData[currentLineIndex - 1].time || 1);
       const interpolatedColor = interpolateColor(pastelColors[colorIndex], pastelColors[(colorIndex + 1) % pastelColors.length], colorFactor);
 
-      // Actualiza el contenido de la letra
+      // Actualizar el contenido de la letra
       const highlightedWords = words.slice(0, currentWordIndex).map(word => {
         return `<span class="highlight" style="color: ${interpolatedColor}">${word}</span>`;
       });
@@ -183,12 +183,12 @@
   }
 
   function resetLyricsAndAudio() {
-    currentLineIndex = 0; // Reinicia las letras
-    currentWordIndex = 0; // Reinicia las palabras
-    lyrics.textContent = ""; // Limpia el texto
-    audio.currentTime = 0; // Reinicia la canción
-    tituloTeAmo.style.display = "none"; // Oculta "Te amo"
-    titulo.style.display = "block"; // Asegura que el título principal vuelva a mostrarse
+    currentLineIndex = 0; // Reiniciar las letras
+    currentWordIndex = 0; // Reiniciar las palabras
+    lyrics.textContent = ""; // Limpiar el texto
+    audio.currentTime = 0; // Reiniciar la canción
+    tituloTeAmo.style.display = "none"; // Ocultar "Te amo"
+    titulo.style.display = "block"; 
     // Ocultar título principal después de 20 segundos
     setTimeout(() => {
       titulo.style.display = "none";
@@ -205,7 +205,7 @@
   playButton.addEventListener("click", () => {
     if (audio.paused || audio.ended) {
       if (audio.ended) {
-        resetLyricsAndAudio(); // Reinicia todo si la canción terminó
+        resetLyricsAndAudio(); // Reiniciar si la canción terminó
       }
       audio.play();
       playButton.textContent = "Pausar Canción";
